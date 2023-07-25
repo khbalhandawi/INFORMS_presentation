@@ -1,0 +1,64 @@
+%------------------------------------------------
+\section{Overview of mesh adaptive direct search}
+%------------------------------------------------
+\begin{frame}[t,label=abm_6]
+	\frametitle{Overview of stochastic mesh adaptive direct search}
+	\tikzstyle{background grid}=[draw, black!50,step=.5cm]
+	%
+	\uncover<1->{No gradient information available, blackbox is expensive and \emphasis{noisy}\ifshowcitations\footpartcite{Audet2020}\fi}%
+	\only<4->{{\color{white}\ifshowcitations\footpartcite{Dzahini2022}\fi}}\\
+	%
+	\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{.42\textwidth} % Left column and width
+			\vspace{-1.2em}
+			% Optimization problem
+			\begin{exampleblock}{Objective and constraints}
+				\vspace{-1.2em}
+				\begin{equation*}
+					\begin{aligned}
+						& \underset{\mathbf{x}}{\text{min}}
+						& & f(\mathbf{x}) = \mathbb{E}_{\Theta}\left[{f}_{\Theta}(\mathbf{x})\right]\\
+						& \text{subject to}
+						& & {c}(\mathbf{x}) = \mathbb{E}_{\Theta}\left[{c}_{\Theta}(\mathbf{x})\right] \le 0\\
+						& \text{where}
+						& & \mathbf{x}:\text{ variables}~\Theta\mathrm{:realizations}
+					\end{aligned}
+				\end{equation*}
+			\end{exampleblock}
+			\only<-3>{
+				\small
+				\begin{itemize}\itemsep0em
+					\item Constructs estimates of objective:
+					%
+					\vspace{-1em}
+					\begin{equation*} \label{eq:samplerate}
+						f^{k} = \dfrac{1}{n^k}\sum_{i=1}^{n^k} f_{\Theta_{0,i}}({x}_k)
+					\end{equation*}
+					\vspace{-1em}
+					%
+					\item $n^k$ is the sampling rate
+					\item<2-> Tracks uncertainty interval $\mathcal{I}(\delta^k_\text{poll})$ in the estimate
+				\end{itemize}
+			}%
+			\only<4->{~\\~\\\centering Constraint handling using the \textit{progressive barrier} approach \footnotemark[2]}%
+		\end{column}
+		%
+		\begin{column}{.5\textwidth} % Left column and width
+			\tikzstyle{background grid}=[draw, black!50,step=.5cm]
+			
+			\only<1>{\def\frameopt{3}}%
+			\only<2>{\def\frameopts{1}}%
+			\only<3->{\def\frameopts{4}}%
+
+			\tikzstyle{background grid}=[draw, black!50,step=.1cm]
+			\hspace*{5em}\raisebox{-1em}{%
+				\begin{tikzpicture}[scale=0.45, every node/.style={scale=0.45}, remember picture, overlay] %show background grid, 
+					\only<1>{\input{schematics/mads}}%
+					\only<2->{\input{schematics/stomads}}%
+				\end{tikzpicture}%
+			}%
+		\end{column}
+	\end{columns}
+	\vspace{-3em}
+\end{frame}
+\addtocounter{footnote}{-2}
