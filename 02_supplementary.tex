@@ -5,6 +5,66 @@
 %------------------------------------------------
 \section{Supplementary content}
 %------------------------------------------------
+\subsection{Training challenges}
+%------------------------------------------------
+\begin{frame}[t]
+    \frametitle{Training the model}
+	%
+	There are several challenges associated with hyperparameter optimization\\
+	%
+    \begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		
+        \begin{column}{.5\textwidth} % Left column and width
+        \only<1->{
+			\begin{itemize}
+				\item The number of epochs can be tuned using \textit{early stopping}%
+				\item This is a form of \textit{regularization} to reduce over-fitting%
+			\end{itemize}
+        }%
+        \only<3->{
+			~~~However,\\
+			\uncover<4->{
+				~~~1) Other hyperparameters to tune
+				\begin{itemize}
+					\item Dropout%
+					\item Training batch size%
+					\item Activation function(s)%
+				\end{itemize}
+			}%
+            \uncover<5->{~~~2) Training can be \emphasis{expensive}}\\
+            \uncover<6->{~~~3) Backpropagation is \emphasis{stochastic}}
+        }%
+    
+        \end{column}
+    
+        \begin{column}{.5\textwidth} % Left column and width
+    
+            \vspace{-1.5em}
+            \begin{figure}
+                \centering
+                \only<1>{\includegraphics[width=0.9\textwidth]{training/epoch_0.pdf}}%
+                \only<2>{
+					\begin{animateinline}[autoplay,width=0.9\textwidth]{8}
+						\ifshowanimations
+							\multiframe{52}{i=0+5}{%
+								\includegraphics{training/epoch_\i.pdf}
+							}
+						\else
+							\multiframe{1}{i=262+0}{%
+								\includegraphics{training/epoch_\i.pdf}
+							}
+						\fi
+					\end{animateinline}%
+                }%
+                \only<3->{\includegraphics[width=0.9\textwidth]{training/final_model.pdf}}%
+                \vspace{-0.75em}
+                \caption{Effect of number of epochs on testing loss}
+            \end{figure}%
+        \end{column}
+    \end{columns}
+        
+\end{frame}
+%------------------------------------------------
 \subsection{Hyperparameter tuning results}
 %------------------------------------------------
 \begin{frame}[t,noframenumbering]
