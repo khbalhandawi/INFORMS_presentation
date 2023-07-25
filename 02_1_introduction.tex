@@ -1,11 +1,9 @@
 %------------------------------------------------
-\section{Introduction}
-%------------------------------------------------
 \begin{frame}[t]
-	\frametitle{Background: COVID-19 forecasting targets}
+	\frametitle{Research displinces in epidemiology}
 	\tikzstyle{background grid}=[draw, black!50,step=.5cm]
 	%
-	Forecasting novel epidemics is a multidisciplinary field involving multiple \emph{targets} \footpartcite{Wu2021}\\
+	Forecasting novel epidemics is a multidisciplinary field involving multiple \emph{targets} \ifshowcitations\footpartcite{Wu2021}\fi\\
 	\emph{Inputs} for forecasting \emphasis{epidemic size:}\\
     %
     \begin{itemize}
@@ -24,18 +22,27 @@
 		\node [inner sep=0pt,above left, opacity=1.0]  at (0.99\textwidth,-0.0\textheight) (seq2seq) 
 			{
 				\only<1>{\includegraphics[width=0.45\textwidth]{targets/nowcasting_targets_1.pdf}}%
-				\only<2>{\includegraphics[width=0.45\textwidth]{targets/nowcasting_targets_2.pdf}}%
-                \only<3->{\includegraphics[width=0.45\textwidth]{targets/nowcasting_targets_3.pdf}}%
+				\only<2>{\includegraphics[width=0.45\textwidth]{targets/nowcasting_targets_5.pdf}}%
+                \only<3->{\includegraphics[width=0.45\textwidth]{targets/nowcasting_targets_6.pdf}}%
 			};
-		\only<1->{
-			\node[inner sep=0pt,below=\belowcaptionskip of seq2seq,text width=\linewidth]
-				{\vspace{-1em}{Nowcasting targets}};
-		}%
 		% show origin
 		% \fill (0,0) circle (2pt);
 	\end{tikzpicture}%
 	%
 	\vspace{-3em}
+\end{frame}
+\addtocounter{footnote}{-1}
+%------------------------------------------------
+\begin{frame}[c,noframenumbering]
+	\centering
+	% \setlength\fboxsep{0pt}
+	\begin{titleblock}{}
+		~\\%
+		{\centering\LARGE Nowcasting epidemic trajectory using statistical models\ifshowcitations\footnotemark[1]\fi\\}%
+		~\\%
+		{\textit{Joint work with: Dr. Ibrahim Chamseddine, Dr. Athar Khalil, and Prof. Michael Kokkolaras}}
+	\end{titleblock}
+	{\color{white}\ifshowcitations\footpartcite{Khalil2022}[1]\fi}
 \end{frame}
 \addtocounter{footnote}{-1}
 %------------------------------------------------

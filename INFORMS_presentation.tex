@@ -49,13 +49,13 @@
 
 % Toggle animations on or off for faster build times
 \newif\ifshowanimations
-\showanimationstrue
-% \showanimationsfalse
+% \showanimationstrue
+\showanimationsfalse
 
 % Toggle animations on or off for faster build times
 \newif\ifshowcitations
-\showcitationstrue
-% \showcitationsfalse
+% \showcitationstrue
+\showcitationsfalse
 
 % for zero-padded image numbers inside animations
 \newcommand\zeropad[2]{%
@@ -138,8 +138,7 @@
 	\makeatother
 
 	\usepackage{filecontents}
-	\addbibresource{abm_presentation.bib}
-	% \bibliography{hpo_presentation.bib}
+	\addbibresource{informs_presentation.bib}
 	% \renewcommand*{\thefootnote}{\alph{footnote}} % alpha footnotes
 \fi
 %==============================================================================%
@@ -330,6 +329,8 @@
 % \end{frame}
 %----------------------------------------------------------------------------------------
 
+\include{01_1_introduction}
+
 %----------------------------------------------------------------------------------------
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
@@ -340,9 +341,6 @@
 
 % Section 02: problem formulation
 \include{01_2_problem_formulation}
-
-% Section 03: mads_overview
-\include{01_3_mads_overview}
 
 % Section 04: results
 \include{01_4_results}
@@ -378,8 +376,13 @@
 \end{frame}
 %----------------------------------------------------------------------------------------
 
-% Supplementary content
+% % Supplementary content
 \include{01_supplementary}
+
+% Section 03: mads_overview
+\include{01_3_mads_overview}
+
 \include{02_supplementary}
+
 
 \end{document} 
